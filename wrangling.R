@@ -15,6 +15,10 @@ write.csv(df,
 # long dataframe
 dfLong <- melt(df, id.vars=c("Country", "Rank", "Total", "Rank.by.Total",
                              "Country.Code", "Latitude", "Longitude"))
-write.csv(df, 
-          "C:/Users/alxnd/OneDrive/Documents/Monash/S2 2022/FIT3179/Viz2/medal_countries_map_LONG.csv", 
+names(dfLong)[8] = "MedalType"
+names(dfLong)[9] = "Count"
+
+dfLong$Total[dfLong$MedalType != 'Gold'] <- 0
+write.csv(dfLong, 
+          "C:/Users/alxnd/OneDrive/Documents/Monash/S2 2022/FIT3179/Viz2/medal_countries_map_LONG_custom.csv", 
           row.names = TRUE)
