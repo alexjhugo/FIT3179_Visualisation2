@@ -29,7 +29,6 @@
       "url": "https://raw.githubusercontent.com/alexjhugo/FIT3179_Visualisation2/main/dataset/medal_countries_map.csv",
       "format": {"type": "csv", "delimiter": ","},
       "transform": [
-        {"type": "filter", "expr": "datum.Total >= Total_Medals_Above"},
         {
           "type": "geojson",
           "fields": ["Longitude", "Latitude"],
@@ -57,20 +56,6 @@
       },
       "type": "equalEarth"
     }
-  ],
-  "signals": [
-    {
-      "name": "Total_Medals_Above",
-      "value": 0,
-      "bind": {
-        "input": "range",
-        "min": 0,
-        "max": 113,
-        "step": 1,
-        "name": "Minimum Number of Medals: "
-      }
-    },
-    {"totalIsActive": 1, "goldIsActive": 0}
   ],
   "marks": [
     {
