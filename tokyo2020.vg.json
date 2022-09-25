@@ -80,7 +80,7 @@
       "from": {"data": "source_0"},
       "encode": {
         "update": {
-          "fill": {"value": "beige"},
+          "fill": {"value": "#e5dec0"},
           "stroke": {"value": "#c5c5c5"},
           "ariaRoleDescription": {"value": "geoshape"}
         }
