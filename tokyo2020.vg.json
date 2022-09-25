@@ -81,7 +81,7 @@
       "encode": {
         "update": {
           "fill": {"value": "#e5dec0"},
-          "stroke": {"value": "#c5c5c5"},
+          "stroke": {"value": "#bbbaba"},
           "ariaRoleDescription": {"value": "geoshape"}
         }
       },
@@ -94,7 +94,7 @@
       "from": {"data": "source_1"},
       "encode": {
         "update": {
-          "fill": {"value": "lightskyblue"},
+          "fill": {"value": "#cbe5fc"},
           "stroke": {"value": "darkgrey"},
           "ariaRoleDescription": {"value": "geoshape"}
         }
@@ -109,7 +109,7 @@
       "encode": {
         "update": {
           "fill": {"value": null},
-          "stroke": {"value": "#dbdbdb"},
+          "stroke": {"value": "#c4cfd9"},
           "ariaRoleDescription": {"value": "geoshape"}
         }
       },
