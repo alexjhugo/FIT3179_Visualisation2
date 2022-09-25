@@ -1,0 +1,168 @@
+{
+  "$schema": "https://vega.github.io/schema/vega/v5.json",
+  "background": "white",
+  "padding": 5,
+  "width": 800,
+  "height": 450,
+  "title": {
+    "text": "Tokyo 2020 Summer Olympics Country Medals Statistics",
+    "frame": "group"
+  },
+  "data": [
+    {
+      "name": "source_0",
+      "url": "https://raw.githubusercontent.com/alexjhugo/FIT3179_Visualisation2/main/globe.json",
+      "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
+    },
+    {
+      "name": "source_1",
+      "url": "https://raw.githubusercontent.com/alexjhugo/FIT3179_Visualisation2/main/oceans.topojson.txt",
+      "format": {"type": "topojson", "feature": "oceans"}
+    },
+    {
+      "name": "source_2",
+      "url": "https://raw.githubusercontent.com/alexjhugo/FIT3179_Visualisation2/main/globe.json",
+      "format": {"type": "topojson", "feature": "ne_110m_graticules_30"}
+    },
+    {
+      "name": "source_3",
+      "url": "https://raw.githubusercontent.com/alexjhugo/FIT3179_Visualisation2/main/medal_countries_map.csv",
+      "format": {"type": "csv", "delimiter": ","},
+      "transform": [
+        {"type": "filter", "expr": "datum.Total >= Total_Medals_Above"},
+        {
+          "type": "geojson",
+          "fields": ["Longitude", "Latitude"],
+          "signal": "layer_3_geojson_0"
+        },
+        {
+          "type": "geopoint",
+          "projection": "projection",
+          "fields": ["Longitude", "Latitude"],
+          "as": ["layer_3_x", "layer_3_y"]
+        },
+        {
+          "type": "filter",
+          "expr": "isValid(datum[\"Total\"]) && isFinite(+datum[\"Total\"])"
+        }
+      ]
+    }
+  ],
+  "projections": [
+    {
+      "name": "projection",
+      "size": {"signal": "[width, height]"},
+      "fit": {
+        "signal": "[data('source_0'), data('source_1'), data('source_2'), layer_3_geojson_0]"
+      },
+      "type": "equalEarth"
+    }
+  ],
+  "signals": [
+    {
+      "name": "Total_Medals_Above",
+      "value": 0,
+      "bind": {
+        "input": "range",
+        "min": 0,
+        "max": 113,
+        "step": 1,
+        "name": "Minimum Number of Medals: "
+      }
+    },
+    {"totalIsActive": 1, "goldIsActive": 0}
+  ],
+  "marks": [
+    {
+      "name": "layer_0_marks",
+      "type": "shape",
+      "style": ["geoshape"],
+      "from": {"data": "source_0"},
+      "encode": {
+        "update": {
+          "fill": {"value": "beige"},
+          "stroke": {"value": "#c5c5c5"},
+          "ariaRoleDescription": {"value": "geoshape"}
+        }
+      },
+      "transform": [{"type": "geoshape", "projection": "projection"}]
+    },
+    {
+      "name": "layer_1_marks",
+      "type": "shape",
+      "style": ["geoshape"],
+      "from": {"data": "source_1"},
+      "encode": {
+        "update": {
+          "fill": {"value": "lightskyblue"},
+          "stroke": {"value": "darkgrey"},
+          "ariaRoleDescription": {"value": "geoshape"}
+        }
+      },
+      "transform": [{"type": "geoshape", "projection": "projection"}]
+    },
+    {
+      "name": "layer_2_marks",
+      "type": "shape",
+      "style": ["geoshape"],
+      "from": {"data": "source_2"},
+      "encode": {
+        "update": {
+          "fill": {"value": null},
+          "stroke": {"value": "#dbdbdb"},
+          "ariaRoleDescription": {"value": "geoshape"}
+        }
+      },
+      "transform": [{"type": "geoshape", "projection": "projection"}]
+    },
+    {
+      "name": "layer_3_marks",
+      "type": "symbol",
+      "style": ["circle"],
+      "from": {"data": "source_3"},
+      "encode": {
+        "update": {
+          "opacity": {"value": 0.6},
+          "fill": {"value": "black"},
+          "tooltip": {
+            "signal": "{\"Country/Team\": isValid(datum[\"Country\"]) ? datum[\"Country\"] : \"\"+datum[\"Country\"], \"Total Medals\": format(datum[\"Total\"], \"\"), \"Gold\": format(datum[\"Gold\"], \"\"), \"Silver\": format(datum[\"Silver\"], \"\"), \"Bronze\": format(datum[\"Bronze\"], \"\")}"
+          },
+          "ariaRoleDescription": {"value": "circle"},
+          "description": {
+            "signal": "\"Longitude: \" + (format(datum[\"Longitude\"], \"\")) + \"; Latitude: \" + (format(datum[\"Latitude\"], \"\")) + \"; Number of Medals Obtained: \" + (format(datum[\"Total\"], \"\")) + \"; Country/Team: \" + (isValid(datum[\"Country\"]) ? datum[\"Country\"] : \"\"+datum[\"Country\"]) + \"; Total Medals: \" + (format(datum[\"Total\"], \"\")) + \"; Gold: \" + (format(datum[\"Gold\"], \"\")) + \"; Silver: \" + (format(datum[\"Silver\"], \"\")) + \"; Bronze: \" + (format(datum[\"Bronze\"], \"\"))"
+          },
+          "x": {"field": "layer_3_x"},
+          "y": {"field": "layer_3_y"},
+          "size": {"scale": "size", "field": "Total"},
+          "shape": {"value": "circle"}
+        }
+      }
+    }
+  ],
+  "scales": [
+    {
+      "name": "size",
+      "type": "threshold",
+      "domain": [5, 10, 20, 50, 80, 100],
+      "range": [7, 15, 50, 100, 200, 380, 580]
+    }
+  ],
+  "legends": [
+    {
+      "title": "Number of Medals Obtained",
+      "size": "size",
+      "labelOverlap": "greedy",
+      "symbolType": "circle",
+      "encode": {
+        "symbols": {
+          "update": {
+            "fill": {"value": "black"},
+            "opacity": {"value": 0.6},
+            "stroke": {"value": "transparent"}
+          }
+        }
+      }
+    }
+  ],
+  "config": {}
+}
