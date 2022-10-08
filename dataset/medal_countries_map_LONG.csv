@@ -1,4 +1,4 @@
-"","Country","Rank","Total","Rank.by.Total","Country.Code","Latitude","Longitude","Medal Type","Count"
+"","Country","Rank","Total","Rank.by.Total","Country.Code","Latitude","Longitude","Medal.Type","Count"
 "1","Argentina",72,3,60,"AR",-38.416097,-63.616672,"Gold",0
 "2","Armenia",69,4,47,"AM",40.069099,45.038189,"Gold",0
 "3","Australia",6,46,6,"AU",-25.274398,133.775136,"Gold",17
@@ -16,7 +16,7 @@
 "15","Canada",11,24,11,"CA",56.130366,-106.346771,"Gold",7
 "16","Chinese Taipei",34,12,22,"TW",23.69781,120.960515,"Gold",2
 "17","Colombia",66,5,42,"CO",4.570868,-74.297333,"Gold",0
-"18","Côte d'Ivoire",86,1,77,"CI",7.539989,-5.54708,"Gold",0
+"18","CÃ´te d'Ivoire",86,1,77,"CI",7.539989,-5.54708,"Gold",0
 "19","Croatia",26,8,29,"HR",45.1,15.2,"Gold",3
 "20","Cuba",14,15,18,"CU",21.521757,-77.781167,"Gold",7
 "21","Czech Republic",18,11,23,"CZ",49.817492,15.472962,"Gold",4
@@ -107,7 +107,7 @@
 "106","Canada",11,24,11,"CA",56.130366,-106.346771,"Silver",6
 "107","Chinese Taipei",34,12,22,"TW",23.69781,120.960515,"Silver",4
 "108","Colombia",66,5,42,"CO",4.570868,-74.297333,"Silver",4
-"109","Côte d'Ivoire",86,1,77,"CI",7.539989,-5.54708,"Silver",0
+"109","CÃ´te d'Ivoire",86,1,77,"CI",7.539989,-5.54708,"Silver",0
 "110","Croatia",26,8,29,"HR",45.1,15.2,"Silver",3
 "111","Cuba",14,15,18,"CU",21.521757,-77.781167,"Silver",3
 "112","Czech Republic",18,11,23,"CZ",49.817492,15.472962,"Silver",4
@@ -198,7 +198,7 @@
 "197","Canada",11,24,11,"CA",56.130366,-106.346771,"Bronze",11
 "198","Chinese Taipei",34,12,22,"TW",23.69781,120.960515,"Bronze",6
 "199","Colombia",66,5,42,"CO",4.570868,-74.297333,"Bronze",1
-"200","Côte d'Ivoire",86,1,77,"CI",7.539989,-5.54708,"Bronze",1
+"200","CÃ´te d'Ivoire",86,1,77,"CI",7.539989,-5.54708,"Bronze",1
 "201","Croatia",26,8,29,"HR",45.1,15.2,"Bronze",2
 "202","Cuba",14,15,18,"CU",21.521757,-77.781167,"Bronze",5
 "203","Czech Republic",18,11,23,"CZ",49.817492,15.472962,"Bronze",3
