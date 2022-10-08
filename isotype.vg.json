@@ -1,0 +1,141 @@
+{
+  "$schema": "https://vega.github.io/schema/vega/v5.json",
+  "background": "white",
+  "padding": 5,
+  "data": [
+    {
+      "name": "source_0",
+      "url": "https://raw.githubusercontent.com/alexjhugo/FIT3179_Visualisation2/main/dataset/medal_isotype.csv",
+      "format": {"type": "csv", "delimiter": ","},
+      "transform": [
+        {
+          "type": "formula",
+          "expr": "{'Gold': '🥇', 'Silver': '🥈', 'Bronze': '🥉'}[datum.MedalType]",
+          "as": "emoji"
+        },
+        {
+          "type": "window",
+          "params": [null],
+          "as": ["rank"],
+          "ops": ["rank"],
+          "fields": [null],
+          "sort": {"field": [], "order": []},
+          "groupby": ["Country", "MedalType"]
+        },
+        {
+          "type": "formula",
+          "expr": "datum[\"Country\"]===\"United States of America\" ? 0 : 1",
+          "as": "row_Country_sort_index"
+        }
+      ]
+    },
+    {
+      "name": "row_domain",
+      "source": "source_0",
+      "transform": [
+        {
+          "type": "aggregate",
+          "groupby": ["Country"],
+          "fields": ["row_Country_sort_index"],
+          "ops": ["max"],
+          "as": ["row_Country_sort_index"]
+        }
+      ]
+    }
+  ],
+  "signals": [
+    {"name": "child_width", "value": 800},
+    {"name": "child_height", "value": 200}
+  ],
+  "layout": {"padding": 20, "columns": 1, "bounds": "full", "align": "all"},
+  "marks": [
+    {
+      "name": "row_header",
+      "type": "group",
+      "role": "row-header",
+      "from": {"data": "row_domain"},
+      "sort": {
+        "field": "datum[\"row_Country_sort_index\"]",
+        "order": "ascending"
+      },
+      "title": {
+        "text": {
+          "signal": "isValid(parent[\"Country\"]) ? parent[\"Country\"] : \"\"+parent[\"Country\"]"
+        },
+        "orient": "left",
+        "style": "guide-label",
+        "frame": "group",
+        "offset": 10
+      },
+      "encode": {"update": {"height": {"signal": "child_height"}}}
+    },
+    {
+      "name": "cell",
+      "type": "group",
+      "style": "cell",
+      "from": {
+        "facet": {
+          "name": "facet",
+          "data": "source_0",
+          "groupby": ["Country"],
+          "aggregate": {
+            "fields": ["row_Country_sort_index"],
+            "ops": ["max"],
+            "as": ["row_Country_sort_index"]
+          }
+        }
+      },
+      "sort": {
+        "field": ["datum[\"row_Country_sort_index\"]"],
+        "order": ["ascending"]
+      },
+      "encode": {
+        "update": {
+          "width": {"signal": "child_width"},
+          "height": {"signal": "child_height"}
+        }
+      },
+      "marks": [
+        {
+          "name": "child_marks",
+          "type": "text",
+          "style": ["text"],
+          "from": {"data": "facet"},
+          "encode": {
+            "update": {
+              "baseline": {"value": "middle"},
+              "fill": {"value": "black"},
+              "description": {
+                "signal": "\"rank: \" + (isValid(datum[\"rank\"]) ? datum[\"rank\"] : \"\"+datum[\"rank\"]) + \"; MedalType: \" + (isValid(datum[\"MedalType\"]) ? datum[\"MedalType\"] : \"\"+datum[\"MedalType\"]) + \"; emoji: \" + (isValid(datum[\"emoji\"]) ? datum[\"emoji\"] : \"\"+datum[\"emoji\"])"
+              },
+              "x": {"scale": "x", "field": "rank"},
+              "y": {"scale": "y", "field": "MedalType"},
+              "text": {
+                "signal": "isValid(datum[\"emoji\"]) ? datum[\"emoji\"] : \"\"+datum[\"emoji\"]"
+              },
+              "fontSize": {"value": 60},
+              "align": {"value": "center"}
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "scales": [
+    {
+      "name": "x",
+      "type": "point",
+      "domain": {"data": "source_0", "field": "rank", "sort": true},
+      "range": [0, {"signal": "child_width"}],
+      "padding": 0.5
+    },
+    {
+      "name": "y",
+      "type": "point",
+      "domain": {"data": "source_0", "field": "MedalType"},
+      "range": [0, {"signal": "child_height"}],
+      "padding": 0.5
+    }
+  ],
+  "config": {"style": {"cell": {"stroke": ""}}}
+}
