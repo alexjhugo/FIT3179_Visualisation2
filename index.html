@@ -6,7 +6,7 @@
     <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
-    
+
     <!-- Import pure.css -->
     <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css"
         integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
@@ -16,6 +16,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -27,24 +29,31 @@
 </head>
 
 <body>
-    <div class="pure-g">
-        <div class="pure-u-1-1">
-            <h1>Tokyo 2021 Olympics</h1>
-            <p>A statistics and data visualisation of the 2021 Tokyo Olympic Games</p>
-        </div>
-    </div>
-
-    <br>
-
-    <div class="pure-g">
-        <div class="pure-u-1-2">
-            <div class="description description-left">
-                <h2>Medals by Countries Participating</h2>
-                <p>The map on the right shows the number of medals by countries</p>
+    <div class="page">
+        <div class="pure-g">
+            <div class="pure-u-1-1">
+                <h1>Tokyo 2021 Summer Olympics</h1>
+                <p>A statistics and summary of the 2021 Tokyo Summer Olympic Games</p>
             </div>
         </div>
-        <div class="pure-u-1-2">
-            <div id="map"></div>
+
+        <br>
+
+        <div class="pure-g">
+            <div class="pure-u-1-2">
+                <div class="description description-left">
+                    <h2>Number of Medals by Countries</h2>
+                    <p>The map on the right shows us the number of medals by countries, using the circle areas drawn over the countries geographical area.
+                        We can observe that the United States of America is the country that obtained the highest number of medals. We can also see that there are quite a lot of European countries that obtained medals. Africa, on the other hand, is the opposite. It has a lot of countries within it (54 countries), but only a handful of them obtained medals (11 countries), and Kenya is its best performing country in terms of the overall medal count. 
+                    </p><br>
+                    <p>
+                        Asia also has quite a lot of countries that obtained medals. China is the second best performing country in the world, sitting just behind the United States of America. Meanwhile, Japan, the host country of the Summer Olympics in 2021, also obtained quite a lot of medals, at 58 total medals, and 27 gold medals.
+                    </p>
+                </div>
+            </div>
+            <div class="pure-u-1-2">
+                <div id="map"></div>
+            </div>
         </div>
     </div>
 </body>
