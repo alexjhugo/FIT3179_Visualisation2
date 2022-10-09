@@ -1,0 +1,31 @@
+"","Country","Rank","Total","Rank.by.Total","Country.Code","Latitude","Longitude","MedalType","Count"
+"1","United States of America",1,113,1,"US",37.09024,-95.712891,"Gold",39
+"2","People's Republic of China",2,88,2,"CN",35.86166,104.195397,"Gold",38
+"3","Japan",3,58,5,"JP",36.204824,138.252924,"Gold",27
+"4","Great Britain",4,65,4,"GB",55.378051,-3.435973,"Gold",22
+"5","Russian Olympic Committee",5,71,3,"RU",61.52401,105.318756,"Gold",20
+"6","Australia",6,46,6,"AU",-25.274398,133.775136,"Gold",17
+"7","Netherlands",7,36,9,"NL",52.132633,5.291266,"Gold",10
+"8","France",8,33,10,"FR",46.227638,2.213749,"Gold",10
+"9","Germany",9,37,8,"DE",51.165691,10.451526,"Gold",10
+"10","Italy",10,40,7,"IT",41.87194,12.56738,"Gold",10
+"11","United States of America",1,113,1,"US",37.09024,-95.712891,"Silver",41
+"12","People's Republic of China",2,88,2,"CN",35.86166,104.195397,"Silver",32
+"13","Japan",3,58,5,"JP",36.204824,138.252924,"Silver",14
+"14","Great Britain",4,65,4,"GB",55.378051,-3.435973,"Silver",21
+"15","Russian Olympic Committee",5,71,3,"RU",61.52401,105.318756,"Silver",28
+"16","Australia",6,46,6,"AU",-25.274398,133.775136,"Silver",7
+"17","Netherlands",7,36,9,"NL",52.132633,5.291266,"Silver",12
+"18","France",8,33,10,"FR",46.227638,2.213749,"Silver",12
+"19","Germany",9,37,8,"DE",51.165691,10.451526,"Silver",11
+"20","Italy",10,40,7,"IT",41.87194,12.56738,"Silver",10
+"21","United States of America",1,113,1,"US",37.09024,-95.712891,"Bronze",33
+"22","People's Republic of China",2,88,2,"CN",35.86166,104.195397,"Bronze",18
+"23","Japan",3,58,5,"JP",36.204824,138.252924,"Bronze",17
+"24","Great Britain",4,65,4,"GB",55.378051,-3.435973,"Bronze",22
+"25","Russian Olympic Committee",5,71,3,"RU",61.52401,105.318756,"Bronze",23
+"26","Australia",6,46,6,"AU",-25.274398,133.775136,"Bronze",22
+"27","Netherlands",7,36,9,"NL",52.132633,5.291266,"Bronze",14
+"28","France",8,33,10,"FR",46.227638,2.213749,"Bronze",11
+"29","Germany",9,37,8,"DE",51.165691,10.451526,"Bronze",16
+"30","Italy",10,40,7,"IT",41.87194,12.56738,"Bronze",20
