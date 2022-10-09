@@ -1,4 +1,4 @@
-"","Country","Rank","Total","Rank.by.Total","Country.Code","Latitude","Longitude","variable","value"
+"","Country","Rank","Total","Rank.by.Total","Country.Code","Latitude","Longitude","MedalType","Count"
 "1","United States of America",1,113,1,"US",37.09024,-95.712891,"Gold",39
 "2","People's Republic of China",2,88,2,"CN",35.86166,104.195397,"Gold",38
 "3","Japan",3,58,5,"JP",36.204824,138.252924,"Gold",27
