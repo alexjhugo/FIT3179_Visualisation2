@@ -2,6 +2,8 @@
 <html lang="en">
 
 <head>
+    <title>FIT3179 - Data Visualisation 2</title>
+
     <!-- Import Vega & Vega-Lite -->
     <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
@@ -19,21 +21,20 @@
 
     <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
 
-    <meta charset="UTF-8">
+    <!-- <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
 
     <script src="vega_lite_vis.js"></script>
 
-    <title>FIT3179 - Data Visualisation 2</title>
 </head>
 
 <body>
     <div class="page">
         <div class="pure-g">
             <div class="pure-u-1-1">
-                <h1>Tokyo 2021 Summer Olympics</h1>
-                <p>A statistics and summary of the 2021 Tokyo Summer Olympic Games</p>
+                <h1>Tokyo 2020 Summer Olympics</h1>
+                <p>A statistics and data visualisation of the 2020 Tokyo Summer Olympic Games</p>
             </div>
         </div>
 
@@ -42,19 +43,65 @@
         <div class="pure-g">
             <div class="pure-u-1-2">
                 <div class="description description-left">
-                    <h2>Number of Medals by Countries/Teams</h2>
+                    <h2>Number of Medals by Countries</h2>
                     <p>The map on the right shows us the number of medals by countries, using the circle areas drawn over the countries geographical area.
-                        We can observe that the United States of America is the country that obtained the highest number of medals. We can also see that there are quite a lot of European countries that obtained medals. Africa, on the other hand, is the opposite. It has a lot of countries within it (54 countries), but only a handful of them obtained medals (11 countries). Kenya is the best performing African country in terms of the overall medal count. 
-                    </p><br>
+                        We can observe that the United States of America is the country that obtained the highest number of medals.
+                        We can also see that there are quite a lot of European countries that obtained medals. Africa, on the other hand, is the opposite. 
+                        It has a lot of countries within it, but only a handful of them obtained medals. 
+                        Kenya is the best performing African country in terms of the overall medal count. 
+                    </p>
                     <p>
-                        Asia also has quite a lot of countries that obtained medals, with a few of them contributing a considerable amount. The People's Republic of China is the second best performing country in the world in terms of their overall medal count, sitting just behind the United States of America. In fact, combining the Chinese countries into a single country (People's Republic of China, Hong Kong, and Chinese Taipei), will give us a country with the highest number of gold medals. Japan, the host country, also obtained a significant amount, at 58 total medals and 27 gold medals.
+                        Asia also has quite a lot of countries that obtained medals, with a few of them contributing a considerable amount. 
+                        The People's Republic of China is the second best performing country in the world in terms of their overall medal count,
+                        sitting just behind the United States of America. Japan, the host country, also obtained a significant amount. 
+                        It's ranked the 3rd in the world in terms of its Gold medal count, and it acquired a total of 58 medals.
+                    </p>
+                    <p>
+                        Sitting just below Asia, we have two strong performing countries in the Oceania region. Australia has managed to obtained a considerable amount of medals,
+                        at 46 total medals. New Zealand, despite being a relatively small country in terms of geographical area, also did relatively well, at a total of 20 medals.
+                    </p>
+                    <p> What's even more interesting here is the fact that 
+                        countries with a large land area, do not necessarily have more medals than smaller countries. Russia (represented by the Russian Olympic Committee) 
+                        and Canada, for example, have less medals than countries such as the United States of America and China. In fact, Japan outperformed
+                        Russia in terms of their Gold medal count, which is further illustrated in the heatmap below.
                     </p>
                 </div>
             </div>
-            <div class="pure-u-1-2">
+            <div class="pure-u-1-2" style="width: 800;height: 450;">
+                
                 <div id="map"></div>
             </div>
         </div>
+
+        <br>
+
+        <div class="pure-g">
+            <div class="pure-u-1-2" style="width: 800;height: 450;">
+                <h2>Medal Type Distribution of the Top Ten Performing Countries</h2>
+                <div id="heatmap"></div>
+            </div>
+            <div class="pure-u-1-2">
+                <div class="description description-right">
+                    <br><br><br>
+                    <p>
+                        The United States of America is yet again the highest performing country, this time in terms of all three categories of medal types.
+                        It obtained the highest amount of Gold medals from all the countries in the world. However, this is just one medal above the amount obtained by the People's Republic of China.
+                        Japan, as mentioned before, is also a rather interesting case. Despite being geographically small in terms of land area, it still managed to acquire the third highest amount
+                        of Gold medals.
+                    </p>
+                    <p>
+                        Another interesting pattern that we can see in the heatmap is that four of the European countries: 
+                        the Netherlands, France, Germany, and Italy, all perform relatively similar to one another. They all obtained the same amount of Gold medals, and also a similar amount of silver medals.
+                        What differs them is their bronze medal count, with Italy obtaining a considerably higher amount than the other three countries.
+                    </p>
+                    <p>
+                        As a whole, the top ten performing countries are mostly countries that are ranked highly in terms of their economy. 
+                        This includes the United States of America, the People's Republic of China, and Japan, which were all also the top three countries in the world in terms of economy.
+                    </p>
+                </div>
+            </div>
+        </div>
+
     </div>
 </body>
 

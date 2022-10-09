@@ -1,8 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 800,
-  "height": 450,
-  "title": "Tokyo 2020 Summer Olympics Country Medals Statistics",
+  "width": "700",
+  "height": "450",
+  "title": "Country Medals World Map",
   "projection": {"type": "equalEarth"},
   "params": [
     {
@@ -75,6 +75,7 @@
         },
         "tooltip": [
           {"field": "Country", "type": "nominal", "title": "Country/Team"},
+          {"field": "Rank", "type": "quantitative", "title": "Rank"},
           {"field": "Total", "type": "quantitative", "title": "Total Medals"},
           {"field": "Gold", "type": "quantitative", "title": "Gold Medals"},
           {"field": "Silver", "type": "quantitative", "title": "Silver Medals"},
