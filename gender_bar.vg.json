@@ -50,6 +50,9 @@
       "encode": {
         "update": {
           "fill": {"scale": "color", "field": "Gender"},
+          "tooltip": {
+            "signal": "{\"Discipline\": isValid(datum[\"Discipline\"]) ? datum[\"Discipline\"] : \"\"+datum[\"Discipline\"], \"Number of Athletes\": format(datum[\"Count\"], \"\")}"
+          },
           "ariaRoleDescription": {"value": "bar"},
           "description": {
             "signal": "\"Number of Athletes: \" + (format(datum[\"Count\"], \"\")) + \"; Discipline: \" + (isValid(datum[\"Discipline\"]) ? datum[\"Discipline\"] : \"\"+datum[\"Discipline\"]) + \"; Gender: \" + (isValid(datum[\"Gender\"]) ? datum[\"Gender\"] : \"\"+datum[\"Gender\"])"
