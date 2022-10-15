@@ -2,12 +2,9 @@
   "$schema": "https://vega.github.io/schema/vega/v5.json",
   "background": "white",
   "padding": 5,
-  "width": 700,
-  "height": 450,
-  "title": {
-    "text": "Tokyo 2020 Summer Olympics Country Medals Statistics",
-    "frame": "group"
-  },
+  "width": 800,
+  "height": 500,
+  "title": {"text": "Total Number of Medals by Country", "frame": "group"},
   "data": [
     {
       "name": "source_0",
@@ -29,11 +26,7 @@
       "url": "https://raw.githubusercontent.com/alexjhugo/FIT3179_Visualisation2/main/dataset/medal_countries_map.csv",
       "format": {"type": "csv", "delimiter": ","},
       "transform": [
-        {
-          "type": "geojson",
-          "fields": ["Longitude", "Latitude"],
-          "signal": "layer_3_geojson_0"
-        },
+        {"type": "filter", "expr": "datum.Total >= CountAbove"},
         {
           "type": "geopoint",
           "projection": "projection",
@@ -50,17 +43,67 @@
   "projections": [
     {
       "name": "projection",
-      "size": {"signal": "[width, height]"},
-      "fit": {
-        "signal": "[data('source_0'), data('source_1'), data('source_2'), layer_3_geojson_0]"
-      },
-      "type": "equalEarth"
+      "translate": {"signal": "[width / 2, height / 2]"},
+      "type": "equalEarth",
+      "scale": {"signal": "zoom_level"},
+      "center": {"signal": "center_to"}
+    }
+  ],
+  "signals": [
+    {
+      "name": "CountAbove",
+      "value": 0,
+      "bind": {
+        "input": "range",
+        "min": 0,
+        "max": 113,
+        "step": 1,
+        "name": "Min. Medals: "
+      }
+    },
+    {
+      "name": "zoom_level",
+      "value": 120,
+      "bind": {
+        "input": "range",
+        "min": 120,
+        "max": 800,
+        "step": 10,
+        "name": "Zoom: "
+      }
+    },
+    {
+      "name": "center_to",
+      "value": [0, 0],
+      "bind": {
+        "input": "select",
+        "options": [
+          [0, 0],
+          [20, 50],
+          [100, 30],
+          [20, 5],
+          [-90, 40],
+          [-60, -10],
+          [150, -30]
+        ],
+        "labels": [
+          "World",
+          "Europe",
+          "Asia",
+          "Africa",
+          "North America",
+          "South America",
+          "Oceania (Australia/New Zealand)"
+        ],
+        "name": "Map Centre: "
+      }
     }
   ],
   "marks": [
     {
       "name": "layer_0_marks",
       "type": "shape",
+      "clip": true,
       "style": ["geoshape"],
       "from": {"data": "source_0"},
       "encode": {
@@ -75,6 +118,7 @@
     {
       "name": "layer_1_marks",
       "type": "shape",
+      "clip": true,
       "style": ["geoshape"],
       "from": {"data": "source_1"},
       "encode": {
@@ -89,6 +133,7 @@
     {
       "name": "layer_2_marks",
       "type": "shape",
+      "clip": true,
       "style": ["geoshape"],
       "from": {"data": "source_2"},
       "encode": {
@@ -103,12 +148,13 @@
     {
       "name": "layer_3_marks",
       "type": "symbol",
+      "clip": true,
       "style": ["circle"],
       "from": {"data": "source_3"},
       "encode": {
         "update": {
           "opacity": {"value": 0.6},
-          "fill": {"value": "#004F35"},
+          "fill": {"value": "#005344"},
           "tooltip": {
             "signal": "{\"Country/Team\": isValid(datum[\"Country\"]) ? datum[\"Country\"] : \"\"+datum[\"Country\"], \"Total Medals\": format(datum[\"Total\"], \"\"), \"Gold Medals\": format(datum[\"Gold\"], \"\"), \"Silver Medals\": format(datum[\"Silver\"], \"\"), \"Bronze Medals\": format(datum[\"Bronze\"], \"\")}"
           },
@@ -141,7 +187,7 @@
       "encode": {
         "symbols": {
           "update": {
-            "fill": {"value": "darkgreen"},
+            "fill": {"value": "#005344"},
             "opacity": {"value": 0.6},
             "stroke": {"value": "transparent"}
           }
