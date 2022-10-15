@@ -51,31 +51,6 @@
           "height": {"scale": "y", "band": 1}
         }
       }
-    },
-    {
-      "name": "layer_1_marks",
-      "type": "text",
-      "style": ["text"],
-      "from": {"data": "source_0"},
-      "encode": {
-        "update": {
-          "fill": [
-            {"test": "datum['Count'] < 25", "value": "black"},
-            {"value": "white"}
-          ],
-          "tooltip": {
-            "signal": "{\"Country/Team\": isValid(datum[\"Country\"]) ? datum[\"Country\"] : \"\"+datum[\"Country\"], \"Medal Type\": isValid(datum[\"MedalType\"]) ? datum[\"MedalType\"] : \"\"+datum[\"MedalType\"]}"
-          },
-          "description": {
-            "signal": "\"Medal Type: \" + (isValid(datum[\"MedalType\"]) ? datum[\"MedalType\"] : \"\"+datum[\"MedalType\"]) + \"; Country/Team: \" + (isValid(datum[\"Country\"]) ? datum[\"Country\"] : \"\"+datum[\"Country\"]) + \"; Count: \" + (format(datum[\"Count\"], \"\"))"
-          },
-          "x": {"scale": "x", "field": "MedalType", "band": 0.5},
-          "y": {"scale": "y", "field": "Country", "band": 0.5},
-          "text": {"signal": "format(datum[\"Count\"], \"\")"},
-          "align": {"value": "center"},
-          "baseline": {"value": "middle"}
-        }
-      }
     }
   ],
   "scales": [
