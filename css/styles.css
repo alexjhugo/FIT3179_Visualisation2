@@ -1,5 +1,11 @@
+@font-face {
+    font-family: 'DIN 1451 Mittelschrift';
+    src: url('../fonts/DIN1451.ttf');
+}
+
+
 body *{
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'DIN 1451 Mittelschrift';
 }
 
 h1 {
