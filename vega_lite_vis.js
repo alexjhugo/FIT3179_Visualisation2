@@ -7,4 +7,5 @@ vegaEmbed("#heatmap", vg_2, {"actions": false}).then(function(result) {}).catch(
 var vg_3 = "vega/groupedBar.vg.json";
 vegaEmbed("#groupedbar", vg_3).then(function(result) {}).catch(console.error);
 
-var vg_4 = "vega/choropleth.vg.json";
+var vg_4 = "vega/chorpleth.vg.json";
+vegaEmbed("#choropleth", vg_4, {"actions": false}).then(function(result) {}).catch(console.error);

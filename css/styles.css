@@ -25,6 +25,7 @@ body {
 
 .page {
     width: 1200px;
+    height: auto;
     background-color: white;
     margin: auto;
     padding: 50px;

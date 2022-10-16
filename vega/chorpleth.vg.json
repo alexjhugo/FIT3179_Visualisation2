@@ -2,12 +2,8 @@
   "$schema": "https://vega.github.io/schema/vega/v5.json",
   "background": "white",
   "padding": 5,
-  "width": 800,
+  "width": 1100,
   "height": 450,
-  "title": {
-    "text": "Performance of Countries with Gold Medals",
-    "frame": "group"
-  },
   "data": [
     {
       "name": "source_0",
@@ -70,10 +66,10 @@
   "signals": [
     {
       "name": "zoom_level",
-      "value": 140,
+      "value": 180,
       "bind": {
         "input": "range",
-        "min": 140,
+        "min": 180,
         "max": 1000,
         "step": 10,
         "name": "Zoom: "
@@ -195,7 +191,7 @@
       "name": "color",
       "type": "linear",
       "domain": {"data": "data_0", "field": "NumAthletesPerGoldMedal"},
-      "range": {"scheme": "greens"},
+      "range": {"scheme": "teals"},
       "reverse": true,
       "interpolate": "hcl",
       "zero": false
@@ -203,9 +199,11 @@
   ],
   "legends": [
     {
-      "title": "Athletes per Gold medal",
+      "orient": "bottom-right",
+      "title": "Athletes per Gold Medal",
       "fill": "color",
-      "gradientLength": {"signal": "clamp(height, 64, 200)"}
+      "direction": "horizontal",
+      "gradientLength": 100
     }
   ],
   "config": {}
