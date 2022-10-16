@@ -1,4 +1,4 @@
-var vg_1 = "vega/globe.vg.json";
+var vg_1 = "vega/propSymbol.vg.json";
 vegaEmbed("#map", vg_1).then(function(result) {}).catch(console.error);
 
 var vg_2 = "vega/heatmap.vg.json";

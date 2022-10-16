@@ -8,17 +8,17 @@
   "data": [
     {
       "name": "source_0",
-      "url": "https://raw.githubusercontent.com/alexjhugo/FIT3179_Visualisation2/main/js/oceans.topojson",
+      "url": "https://raw.githubusercontent.com/alexjhugo/FIT3179_Visualisation2/main/topojson/oceans.topojson",
       "format": {"type": "topojson", "feature": "oceans"}
     },
     {
       "name": "source_1",
-      "url": "https://raw.githubusercontent.com/alexjhugo/FIT3179_Visualisation2/main/js/globe.json",
+      "url": "https://raw.githubusercontent.com/alexjhugo/FIT3179_Visualisation2/main/topojson/globe.json",
       "format": {"type": "topojson", "feature": "ne_110m_graticules_30"}
     },
     {
       "name": "source_2",
-      "url": "https://raw.githubusercontent.com/alexjhugo/FIT3179_Visualisation2/main/js/globe.json",
+      "url": "https://raw.githubusercontent.com/alexjhugo/FIT3179_Visualisation2/main/topojson/globe.json",
       "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
     },
     {
