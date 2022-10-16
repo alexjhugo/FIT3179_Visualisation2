@@ -13,11 +13,11 @@ h1 {
 }
 
 body {
-    background-color: lightgray;
+    background-color: #1c2748;
 }
 
 .page {
-    width: 1800px;
+    width: 1200px;
     background-color: white;
     margin: auto;
     padding: 50px;
