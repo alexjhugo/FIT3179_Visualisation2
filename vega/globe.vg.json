@@ -3,30 +3,29 @@
   "background": "white",
   "padding": 5,
   "width": 800,
-  "height": 500,
+  "height": 450,
   "title": {"text": "Total Number of Medals by Country", "frame": "group"},
   "data": [
     {
       "name": "source_0",
-      "url": "https://raw.githubusercontent.com/alexjhugo/FIT3179_Visualisation2/main/js/globe.json",
-      "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
-    },
-    {
-      "name": "source_1",
       "url": "https://raw.githubusercontent.com/alexjhugo/FIT3179_Visualisation2/main/js/oceans.topojson",
       "format": {"type": "topojson", "feature": "oceans"}
     },
     {
-      "name": "source_2",
+      "name": "source_1",
       "url": "https://raw.githubusercontent.com/alexjhugo/FIT3179_Visualisation2/main/js/globe.json",
       "format": {"type": "topojson", "feature": "ne_110m_graticules_30"}
+    },
+    {
+      "name": "source_2",
+      "url": "https://raw.githubusercontent.com/alexjhugo/FIT3179_Visualisation2/main/js/globe.json",
+      "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
     },
     {
       "name": "source_3",
       "url": "https://raw.githubusercontent.com/alexjhugo/FIT3179_Visualisation2/main/dataset/medal_countries_map.csv",
       "format": {"type": "csv", "delimiter": ","},
       "transform": [
-        {"type": "filter", "expr": "datum.Total >= CountAbove"},
         {
           "type": "geopoint",
           "projection": "projection",
@@ -51,22 +50,11 @@
   ],
   "signals": [
     {
-      "name": "CountAbove",
-      "value": 0,
-      "bind": {
-        "input": "range",
-        "min": 0,
-        "max": 113,
-        "step": 1,
-        "name": "Min. Medals: "
-      }
-    },
-    {
       "name": "zoom_level",
       "value": 120,
       "bind": {
         "input": "range",
-        "min": 120,
+        "min": 140,
         "max": 800,
         "step": 10,
         "name": "Zoom: "
@@ -81,7 +69,7 @@
           [0, 0],
           [20, 50],
           [100, 30],
-          [20, 5],
+          [120, 5],
           [-90, 40],
           [-60, -10],
           [150, -30]
@@ -90,7 +78,7 @@
           "World",
           "Europe",
           "Asia",
-          "Africa",
+          "Southeast Asia",
           "North America",
           "South America",
           "Oceania (Australia/New Zealand)"
@@ -108,8 +96,8 @@
       "from": {"data": "source_0"},
       "encode": {
         "update": {
-          "fill": {"value": "#e5dec0"},
-          "stroke": {"value": "#bbbaba"},
+          "fill": {"value": "#cbe5fc"},
+          "stroke": {"value": "darkgrey"},
           "ariaRoleDescription": {"value": "geoshape"}
         }
       },
@@ -123,8 +111,8 @@
       "from": {"data": "source_1"},
       "encode": {
         "update": {
-          "fill": {"value": "#cbe5fc"},
-          "stroke": {"value": "darkgrey"},
+          "fill": {"value": null},
+          "stroke": {"value": "#c4cfd9"},
           "ariaRoleDescription": {"value": "geoshape"}
         }
       },
@@ -138,8 +126,8 @@
       "from": {"data": "source_2"},
       "encode": {
         "update": {
-          "fill": {"value": null},
-          "stroke": {"value": "#c4cfd9"},
+          "fill": {"value": "#cacaca"},
+          "stroke": {"value": "white"},
           "ariaRoleDescription": {"value": "geoshape"}
         }
       },
