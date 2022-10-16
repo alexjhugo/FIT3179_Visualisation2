@@ -32,6 +32,7 @@
                     <span style="vertical-align: middle;">
                         <b style="font-size: 49pt;">TOKYO 2020 SUMMER OLYMPICS</b>
                     </span><br>
+                </center>
             </div>
         </div>
 
@@ -53,12 +54,10 @@
             </div>
         </div>
 
+        <h1>Number of Medals by Country</h1>
         <div class="pure-g">
             <div class="pure-u-1-1">
-                <h1>Number of Medals by Country</h1>>
-            </div><br>
-            <div class="pure-u-1-1">
-                <center style="text-align: center;">
+                <center> style="text-align: center;">
                     <div id="map"></div>
                 </center>
             </div>
@@ -68,14 +67,16 @@
             <div class="pure-u-1-2">
                 <div class="description-left">
                     <h2>USA vs China</h1>
-                    <p>
-                        Through the map above, we can see that the <b>United States of America (USA)</b> and the
-                        <b>People's Republic of China (China)</b> are the top two countries that obtained the most
-                        number of medals in the olympic games. They are also the top countries in terms of the 
-                        number of medals in their respective regions of <b>North America</b> and <b>Asia</b>.
-                        The <b>USA</b> may have a considerably higher amount of total medals than <b>China</b>. However,
-                        <b>China</b> is not far behind at all as it is only a <b>Gold</b> medal behind the USA.
-                    </p>
+                        <p>
+                            The <b>United States of America (USA)</b> and the
+                            <b>People's Republic of China (China)</b> are the top two countries that obtained the most
+                            number of medals in the olympic games. They are also the top countries in terms of the
+                            number of medals in their respective regions of <b>North America</b> and <b>Asia</b>.
+                            The <b>USA</b> may have a considerably higher amount of total medals than <b>China</b>.
+                            However,
+                            <b>China</b> is not far behind at all, as it is only 1 <b>Gold</b> medal behind the
+                            <b>USA</b>.
+                        </p>
                 </div>
             </div>
             <div class="pure-u-1-2">
@@ -84,23 +85,56 @@
                     <p>
                         <b>Europe</b> is the best region in terms of the overall medal count. It has a lot of
                         countries within it that obtained medals, and significant portion of them are
-                        strong performers. These include a number of <b>Western European</b> countries 
-                        such as <b>Great Britain</b>, <b>France</b>, <b>Germany</b>, <b>Netherlands</b>, 
-                        and <b>Italy</b>. <b>Russia</b> (represented by the <b>Russian Olympic Committee</b>), a country that spans both <b>Europe</b> and <b>Asia</b>
-                        is also a solid performer. It won a total of <b>71</b> medals, 20 of which are <b>Gold</b>.
+                        strong performers. These include a number of <b>Western European</b> countries
+                        such as <b>Great Britain</b>, <b>France</b>, <b>Germany</b>, <b>Netherlands</b>,
+                        and <b>Italy</b>. <b>Russia</b> (represented by the <b>Russian Olympic Committee</b>),
+                        a country that spans both <b>Europe</b> and <b>Asia</b> is also a solid performer.
+                        It has won a total of <b>71</b> medals, a significant portion of the region's medals.
+                </div>
+            </div>
+        </div>
+        <hr><br>
+
+        <h1>Medal Type Distribution of the Top 10 Countries</h1>
+        <div class="pure-g">
+            <div class="pure-u-1-2">
+                <div id="heatmap"></div>
+            </div>
+            <div class="pure-u-1-2">
+                <div class="description-right">
+                    <br>
+                    <p>
+                        The heatmap to the left shows the distribution of the medal types of the top ten performing
+                        countries. Through it, we can see that <b>China</b> and the <b>USA</b> performed similarly in
+                        terms of their <b>Gold</b> medal count. We can also see that four of the <b>Western European</b>
+                        countries mentioned before (<b>France</b>, <b>Germany</b>, <b>Netherlands</b>,
+                        and <b>Italy</b>), performed relatively similar to one another in all medal types,
+                        although Italy has a considerably higher number of <b>Bronze</b> medals than the others.
+                    </p>
+                    <p>
+                        A similar pattern again applies to <b>Great Britain</b> and <b>Russia</b>. The two Countries
+                        obtained a similar amount of medals for the <b>Gold</b> and <b>Bronze</b> categories. The main
+                        factor
+                        differentiating the two is that <b>Russia</b> had won quite a higher amount of <b>Silver</b>
+                        medals
+                        than <b>Great Britain</b>. Despite their impressive performance, the two got outclassed by
+                        <b>Japan</b> in terms of the
+                        <b>Gold</b> medal count.
                     </p>
                 </div>
             </div>
-        </div><hr><br>
-        <h1>Medal Type Distribution of the Top 10 Countries</h1>
-        <div class="pure-g">
-            
-            <div class="pure-u-1-2">
-                
-                <div id="heatmap"></div>
-            </div>
         </div>
+        <hr><br>
 
+        <h1>Performance of Countries with Gold Medals</h1>
+        <div class="pure-g">
+            <center>
+                <div class="pure-u-1-1">
+                    <div id="choropleth"></div>
+                </div>
+            </center>
+        </div><hr><br>
+        
     </div>
 
 
