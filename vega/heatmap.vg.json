@@ -2,8 +2,8 @@
   "$schema": "https://vega.github.io/schema/vega/v5.json",
   "background": "white",
   "padding": 5,
-  "width": 450,
-  "height": 500,
+  "width": 400,
+  "height": 400,
   "style": "cell",
   "data": [
     {
@@ -21,7 +21,7 @@
       "transform": [
         {
           "type": "aggregate",
-          "groupby": ["MedalType", "Country"],
+          "groupby": ["MedalType", "Country", "Count"],
           "ops": ["sum"],
           "fields": ["Count"],
           "as": ["sum_Count"]
@@ -42,8 +42,11 @@
       "encode": {
         "update": {
           "fill": {"scale": "color", "field": "sum_Count"},
+          "tooltip": {
+            "signal": "{\"Country/Team\": isValid(datum[\"Country\"]) ? datum[\"Country\"] : \"\"+datum[\"Country\"], \"Medal Type\": isValid(datum[\"MedalType\"]) ? datum[\"MedalType\"] : \"\"+datum[\"MedalType\"], \"Count\": format(datum[\"Count\"], \"\")}"
+          },
           "description": {
-            "signal": "\"Medal Type: \" + (isValid(datum[\"MedalType\"]) ? datum[\"MedalType\"] : \"\"+datum[\"MedalType\"]) + \"; Country/Team: \" + (isValid(datum[\"Country\"]) ? datum[\"Country\"] : \"\"+datum[\"Country\"]) + \"; Number of Medals: \" + (format(datum[\"sum_Count\"], \"\"))"
+            "signal": "\"Medal Type: \" + (isValid(datum[\"MedalType\"]) ? datum[\"MedalType\"] : \"\"+datum[\"MedalType\"]) + \"; Country/Team: \" + (isValid(datum[\"Country\"]) ? datum[\"Country\"] : \"\"+datum[\"Country\"]) + \"; Number of Medals: \" + (format(datum[\"sum_Count\"], \"\")) + \"; Count: \" + (format(datum[\"Count\"], \"\"))"
           },
           "x": {"scale": "x", "field": "MedalType"},
           "width": {"scale": "x", "band": 1},
@@ -119,9 +122,7 @@
       "orient": "bottom",
       "grid": false,
       "title": "Medal Type",
-      "labelAlign": "right",
-      "labelAngle": 270,
-      "labelBaseline": "middle",
+      "labelBaseline": "top",
       "zindex": 1
     },
     {
@@ -129,6 +130,7 @@
       "orient": "left",
       "grid": false,
       "title": "Country/Team",
+      "labelAlign": "right",
       "zindex": 1
     }
   ],
@@ -136,10 +138,17 @@
     {
       "title": "Number of Medals",
       "fill": "color",
-      "gradientLength": {"signal": "clamp(height, 64, 200)"}
+      "gradientLength": {"signal": "clamp(height, 64, 200)"},
+      "orient":"right",
+      "direction": "vertical"
     }
   ],
   "config": {
-    "axis": {"grid": true, "tickBand": "extent", "gridColor": "lightgrey"}
+    "axis": {
+      "grid": true,
+      "tickBand": "extent",
+      "gridColor": "grey",
+      "labelAngle": 0
+    }
   }
 }

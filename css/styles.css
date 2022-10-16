@@ -10,6 +10,13 @@ body *{
 
 h1 {
     font-weight: 900;
+    text-align: center;
+    font-size: 33pt;
+}
+
+h2 {
+    font-size: 23pt;
+    text-align: center;
 }
 
 body {
@@ -47,4 +54,9 @@ h1 {
 
 .small-font {
     font-size: 14px;
+}
+
+p {
+    text-align: center;
+    font-size: 16pt;
 }

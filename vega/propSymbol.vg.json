@@ -2,9 +2,8 @@
   "$schema": "https://vega.github.io/schema/vega/v5.json",
   "background": "white",
   "padding": 5,
-  "width": 800,
-  "height": 450,
-  "title": {"text": "Total Number of Medals by Country", "frame": "group"},
+  "width": 1100,
+  "height": 500,
   "data": [
     {
       "name": "source_0",
@@ -51,10 +50,10 @@
   "signals": [
     {
       "name": "zoom_level",
-      "value": 120,
+      "value": 180,
       "bind": {
         "input": "range",
-        "min": 140,
+        "min": 180,
         "max": 800,
         "step": 10,
         "name": "Zoom: "
@@ -83,7 +82,7 @@
           "South America",
           "Oceania (Australia/New Zealand)"
         ],
-        "name": "Map Centre: "
+        "name": "Region: "
       }
     }
   ],
@@ -142,7 +141,7 @@
       "encode": {
         "update": {
           "opacity": {"value": 0.6},
-          "fill": {"value": "#005344"},
+          "fill": {"value": "#004236"},
           "tooltip": {
             "signal": "{\"Country/Team\": isValid(datum[\"Country\"]) ? datum[\"Country\"] : \"\"+datum[\"Country\"], \"Total Medals\": format(datum[\"Total\"], \"\"), \"Gold Medals\": format(datum[\"Gold\"], \"\"), \"Silver Medals\": format(datum[\"Silver\"], \"\"), \"Bronze Medals\": format(datum[\"Bronze\"], \"\")}"
           },
@@ -168,6 +167,8 @@
   ],
   "legends": [
     {
+      "direction": "vertical",
+      "orient": "top-left",
       "title": "Number of Medals Obtained",
       "size": "size",
       "labelOverlap": "greedy",
@@ -175,7 +176,7 @@
       "encode": {
         "symbols": {
           "update": {
-            "fill": {"value": "#005344"},
+            "fill": {"value": "#004236"},
             "opacity": {"value": 0.6},
             "stroke": {"value": "transparent"}
           }
