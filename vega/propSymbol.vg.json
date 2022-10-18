@@ -95,7 +95,7 @@
       "from": {"data": "source_0"},
       "encode": {
         "update": {
-          "fill": {"value": "#cbe5fc"},
+          "fill": {"value": "#9fc2e7"},
           "stroke": {"value": "darkgrey"},
           "ariaRoleDescription": {"value": "geoshape"}
         }
@@ -111,7 +111,7 @@
       "encode": {
         "update": {
           "fill": {"value": null},
-          "stroke": {"value": "#c4cfd9"},
+          "stroke": {"value": "lightgrey"},
           "ariaRoleDescription": {"value": "geoshape"}
         }
       },
@@ -140,8 +140,8 @@
       "from": {"data": "source_3"},
       "encode": {
         "update": {
-          "opacity": {"value": 0.6},
-          "fill": {"value": "#004236"},
+          "opacity": {"value": 0.65},
+          "fill": {"value": "#086a6b"},
           "tooltip": {
             "signal": "{\"Country/Team\": isValid(datum[\"Country\"]) ? datum[\"Country\"] : \"\"+datum[\"Country\"], \"Total Medals\": format(datum[\"Total\"], \"\"), \"Gold Medals\": format(datum[\"Gold\"], \"\"), \"Silver Medals\": format(datum[\"Silver\"], \"\"), \"Bronze Medals\": format(datum[\"Bronze\"], \"\")}"
           },

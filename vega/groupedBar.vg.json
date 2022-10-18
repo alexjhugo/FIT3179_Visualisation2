@@ -2,8 +2,8 @@
   "$schema": "https://vega.github.io/schema/vega/v5.json",
   "background": "white",
   "padding": 5,
-  "width": 400,
-  "height": 400,
+  "width": 500,
+  "height": 470,
   "style": "cell",
   "data": [
     {
@@ -115,7 +115,7 @@
       "name": "color",
       "type": "ordinal",
       "domain": {"data": "data_1", "field": "Gender", "sort": true},
-      "range": "category"
+      "range": ["#1864aa", "#369897"]
     }
   ],
   "axes": [
@@ -139,7 +139,7 @@
       "grid": false,
       "title": "Discipline",
       "labelAlign": "right",
-      "labelAngle": 270,
+      "labelAngle": 315,
       "labelBaseline": "middle",
       "zindex": 0
     },
@@ -153,6 +153,13 @@
       "zindex": 0
     }
   ],
-  "legends": [{"fill": "color", "symbolType": "square", "title": "Gender"}],
+  "legends": [
+    {
+      "orient": "top-right",
+      "fill": "color",
+      "symbolType": "square",
+      "title": "Gender"
+    }
+  ],
   "config": {}
 }

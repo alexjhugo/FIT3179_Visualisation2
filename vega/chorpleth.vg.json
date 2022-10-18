@@ -113,7 +113,7 @@
       "from": {"data": "source_0"},
       "encode": {
         "update": {
-          "fill": {"value": "#cbe5fc"},
+          "fill": {"value": "#9fc2e7"},
           "stroke": {"value": ""},
           "ariaRoleDescription": {"value": "geoshape"}
         }
@@ -129,7 +129,7 @@
       "encode": {
         "update": {
           "fill": {"value": null},
-          "stroke": {"value": "#c4cfd9"},
+          "stroke": {"value": "lightgrey"},
           "ariaRoleDescription": {"value": "geoshape"}
         }
       },
@@ -189,7 +189,7 @@
   "scales": [
     {
       "name": "color",
-      "type": "linear",
+      "type": "log",
       "domain": {"data": "data_0", "field": "NumAthletesPerGoldMedal"},
       "range": {"scheme": "teals"},
       "reverse": true,
@@ -199,7 +199,7 @@
   ],
   "legends": [
     {
-      "orient": "bottom-right",
+      "orient": "top-left",
       "title": "Athletes per Gold Medal",
       "fill": "color",
       "direction": "horizontal",
