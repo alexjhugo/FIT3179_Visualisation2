@@ -2,12 +2,8 @@
   "$schema": "https://vega.github.io/schema/vega/v5.json",
   "background": "white",
   "padding": 5,
-  "width": 600,
+  "width": 400,
   "height": 400,
-  "title": {
-    "text": "Number of Athletes in Popular Sports Discipline by Gender",
-    "frame": "group"
-  },
   "style": "cell",
   "data": [
     {
@@ -19,7 +15,7 @@
       "name": "data_0",
       "source": "source_0",
       "transform": [
-        {"type": "formula", "expr": "0", "as": "y_Discipline_sort_index"}
+        {"type": "formula", "expr": "0", "as": "x_Discipline_sort_index"}
       ]
     },
     {
@@ -55,16 +51,16 @@
           },
           "ariaRoleDescription": {"value": "bar"},
           "description": {
-            "signal": "\"Number of Athletes: \" + (format(datum[\"Count\"], \"\")) + \"; Discipline: \" + (isValid(datum[\"Discipline\"]) ? datum[\"Discipline\"] : \"\"+datum[\"Discipline\"]) + \"; Gender: \" + (isValid(datum[\"Gender\"]) ? datum[\"Gender\"] : \"\"+datum[\"Gender\"])"
+            "signal": "\"Discipline: \" + (isValid(datum[\"Discipline\"]) ? datum[\"Discipline\"] : \"\"+datum[\"Discipline\"]) + \"; Number of Athletes: \" + (format(datum[\"Count\"], \"\")) + \"; Gender: \" + (isValid(datum[\"Gender\"]) ? datum[\"Gender\"] : \"\"+datum[\"Gender\"])"
           },
-          "x": {"scale": "x", "field": "Count_end"},
-          "x2": {"scale": "x", "field": "Count_start"},
-          "y": {
-            "scale": "y",
+          "x": {
+            "scale": "x",
             "field": "Discipline",
-            "offset": {"scale": "yOffset", "field": "Gender"}
+            "offset": {"scale": "xOffset", "field": "Gender"}
           },
-          "height": {"scale": "yOffset", "band": 1}
+          "width": {"scale": "xOffset", "band": 1},
+          "y": {"scale": "y", "field": "Count_end"},
+          "y2": {"scale": "y", "field": "Count_start"}
         }
       }
     },
@@ -91,29 +87,29 @@
   "scales": [
     {
       "name": "x",
-      "type": "linear",
-      "domain": {"data": "data_1", "fields": ["Count_start", "Count_end"]},
-      "range": [0, {"signal": "width"}],
-      "nice": true,
-      "zero": true
-    },
-    {
-      "name": "y",
       "type": "band",
       "domain": {
         "data": "data_0",
         "field": "Discipline",
-        "sort": {"op": "min", "field": "y_Discipline_sort_index"}
+        "sort": {"op": "min", "field": "x_Discipline_sort_index"}
       },
-      "range": [0, {"signal": "height"}],
+      "range": [0, {"signal": "width"}],
       "paddingInner": 0.2,
       "paddingOuter": 0.2
     },
     {
-      "name": "yOffset",
+      "name": "y",
+      "type": "linear",
+      "domain": {"data": "data_1", "fields": ["Count_start", "Count_end"]},
+      "range": [{"signal": "height"}, 0],
+      "nice": true,
+      "zero": true
+    },
+    {
+      "name": "xOffset",
       "type": "band",
       "domain": {"data": "data_1", "field": "Gender", "sort": true},
-      "range": [0, {"signal": "bandwidth('y')"}]
+      "range": [0, {"signal": "bandwidth('x')"}]
     },
     {
       "name": "color",
@@ -124,11 +120,11 @@
   ],
   "axes": [
     {
-      "scale": "x",
-      "orient": "bottom",
-      "gridScale": "y",
+      "scale": "y",
+      "orient": "left",
+      "gridScale": "x",
       "grid": true,
-      "tickCount": {"signal": "ceil(width/40)"},
+      "tickCount": {"signal": "ceil(height/40)"},
       "domain": false,
       "labels": false,
       "aria": false,
@@ -141,17 +137,19 @@
       "scale": "x",
       "orient": "bottom",
       "grid": false,
-      "title": "Number of Athletes",
-      "labelFlush": true,
-      "labelOverlap": true,
-      "tickCount": {"signal": "ceil(width/40)"},
+      "title": "Discipline",
+      "labelAlign": "right",
+      "labelAngle": 270,
+      "labelBaseline": "middle",
       "zindex": 0
     },
     {
       "scale": "y",
       "orient": "left",
       "grid": false,
-      "title": "Discipline",
+      "title": "Number of Athletes",
+      "labelOverlap": true,
+      "tickCount": {"signal": "ceil(height/40)"},
       "zindex": 0
     }
   ],
