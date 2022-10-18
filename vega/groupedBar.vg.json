@@ -139,7 +139,7 @@
       "grid": false,
       "title": "Discipline",
       "labelAlign": "right",
-      "labelAngle": 270,
+      "labelAngle": 315,
       "labelBaseline": "middle",
       "zindex": 0
     },
