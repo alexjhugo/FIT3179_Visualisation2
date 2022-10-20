@@ -115,7 +115,7 @@
       "name": "color",
       "type": "ordinal",
       "domain": {"data": "data_1", "field": "Gender", "sort": true},
-      "range": ["#1864aa", "#369897"]
+      "range": ["#1864aa", "#b39ff5"]
     }
   ],
   "axes": [
